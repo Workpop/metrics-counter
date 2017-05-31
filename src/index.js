@@ -1,3 +1,4 @@
+//@flow
 import MetricCounter from './counter';
 import formatMetricsForInfluxDBPoint from './influx';
 

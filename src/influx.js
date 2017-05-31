@@ -1,9 +1,10 @@
+// @flow
 import { get, mapKeys, reduce } from 'lodash';
 
-export default function formatMetricsForInfluxDBPoint(data, measurement, tags) {
+export default function formatMetricsForInfluxDBPoint(data: Object, measurement: string, tags: Object) {
   const timestamp = get(data, 'timestamp');
   const metrics = get(data, 'metrics', {});
-  const flattenedMetrics = reduce(metrics, (memo, value, key) => {
+  const flattenedMetrics = reduce(metrics, (memo: Object, value: Object, key: string): Object => {
     const prefixedMetrics = mapKeys(value, (v, k) => {
       return `${key}_${k}`;
     });

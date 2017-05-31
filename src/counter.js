@@ -1,7 +1,8 @@
+// @flow
 import { floor, forIn, get, isNumber, reduce, unset } from 'lodash';
 
-function Bucket(operations) {
-  this.operations = reduce(operations, (memo, operation) => {
+function Bucket(operations: Array<string>) {
+  this.operations = reduce(operations, (memo: Object, operation: string): Object => {
     return {
       ...memo,
       [operation]: {
@@ -29,7 +30,7 @@ Bucket.prototype.logOperationMetrics = function logOperationMetrics({operation, 
   }
 };
 
-Bucket.prototype.summarize = function summarize() {
+Bucket.prototype.summarize = function summarize(): Object {
   return reduce(this.operations, (memo, value, key) => {
     const count = get(value, 'count', 0);
     const totalResponseTime = get(value, 'total_response_time', 0);
@@ -47,18 +48,18 @@ Bucket.prototype.summarize = function summarize() {
   }, {});
 };
 
-function MetricCounter({intervalMs, flushFunc}) {
+function MetricCounter({intervalMs, flushFunc}: {intervalMs: number, flushFunc: Function}) {
   this.intervalMs = intervalMs;
   this.operations = [];
   this.buckets = {};
   this.flushFunc = flushFunc || console.log; // eslint-disable-line no-console
 }
 
-MetricCounter.prototype.getCurrentBucketId = function getCurrentBucketId() {
+MetricCounter.prototype.getCurrentBucketId = function getCurrentBucketId(): string {
   return `${Math.floor(Date.now() / this.intervalMs)}`;
 };
 
-MetricCounter.prototype.getCurrentBucket = function getCurrentBucket() {
+MetricCounter.prototype.getCurrentBucket = function getCurrentBucket(): Object {
   const bucketId = this.getCurrentBucketId();
   const existingBucket = this.buckets[bucketId];
   if (existingBucket) {
@@ -70,7 +71,7 @@ MetricCounter.prototype.getCurrentBucket = function getCurrentBucket() {
   return createdBucket;
 };
 
-MetricCounter.prototype.addOperation = function addOperation(operation) {
+MetricCounter.prototype.addOperation = function addOperation(operation: string) {
   this.operations.push(operation);
 };
 
