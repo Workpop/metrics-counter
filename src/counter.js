@@ -7,10 +7,10 @@ function Bucket(operations: Array<string>) {
       ...memo,
       [operation]: {
         count: 0,
-        count_2XX: 0,
-        count_3XX: 0,
-        count_4XX: 0,
-        count_5XX: 0,
+        count_2xx: 0,
+        count_3xx: 0,
+        count_4xx: 0,
+        count_5xx: 0,
         total_response_time: 0,
       },
     };
@@ -26,7 +26,7 @@ Bucket.prototype.logOperationMetrics = function logOperationMetrics({operation, 
 
   if (isNumber(httpStatus)) {
     const statusXX = floor(httpStatus / 100);
-    this.operations[operation][`count_${statusXX}XX`] += 1;
+    this.operations[operation][`count_${statusXX}xx`] += 1;
   }
 };
 
