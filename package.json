@@ -1,5 +1,5 @@
 {
-  "name": "metrics-counter",
+  "name": "@workpop/metrics-counter",
   "version": "1.0.0",
   "description": "Tallies operational metrics",
   "main": "lib/index.js",
