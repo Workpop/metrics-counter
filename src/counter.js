@@ -18,6 +18,10 @@ function Bucket(operations: Array<string>) {
 }
 
 Bucket.prototype.logOperationMetrics = function logOperationMetrics({operation, responseTimeMs, httpStatus}) {
+  if (!get(this.operations, operation)) {
+    return;
+  }
+  
   this.operations[operation].count += 1;
 
   if (isNumber(responseTimeMs)) {
