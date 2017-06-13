@@ -11,7 +11,8 @@
     "lint": "eslint ./src",
     "flow": "flow check",
     "release": "standard-version",
-    "integration-test": "babel-node ./test/simulate.js"
+    "integration-test": "babel-node ./test/simulate.js",
+    "test": "mocha --require babel-core/register --reporter spec \"test/*.js\""
   },
   "dependencies": {
     "@workpop/elastic-search-utils": "0.0.5",
