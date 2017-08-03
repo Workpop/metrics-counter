@@ -1,8 +1,9 @@
 //@flow
 import MetricCounter from './counter';
-import formatMetricsForInfluxDBPoint from './influx';
+import { formatMetricsForInfluxDBPoint, InfluxMetricsQueue }  from './influx';
 
 export {
   MetricCounter,
   formatMetricsForInfluxDBPoint,
+  InfluxMetricsQueue,
 };
