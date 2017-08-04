@@ -91,7 +91,7 @@ Operation.prototype.startTimer = function (): Object {
 //fields should be values that you want to measure, eg response timestamp
 Operation.prototype.queuePoint = function (tags: Object, fields: Object) {
   const point = new Point({
-    timestamp: Date.now(),
+    timestamp: new Date(),
     tags: {
       ...this.tags,
       ...tags,
