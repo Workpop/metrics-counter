@@ -1,4 +1,4 @@
-import { MetricCounter, formatMetricsForInfluxDBPoint } from '../src/index';
+import { MetricCounter, formatMetricsForInfluxDBPoint, InfluxMetricsQueue } from '../src/index';
 
 const intervalMs = 30000;
 const measurement = 'sample_measurement';
