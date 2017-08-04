@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.2"></a>
+## [1.2.2](https://github.com/Workpop/metrics-counter/compare/v1.2.1...v1.2.2) (2017-08-04)
+
+
+### Bug Fixes
+
+* **influx:** use date iso string for timestamp ([f86afc0](https://github.com/Workpop/metrics-counter/commit/f86afc0))
+
+
+
 <a name="1.2.1"></a>
 ## [1.2.1](https://github.com/Workpop/metrics-counter/compare/v1.2.0...v1.2.1) (2017-08-04)
 
